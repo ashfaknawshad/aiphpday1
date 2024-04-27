@@ -1,0 +1,97 @@
+
+
+.custom-navbar{
+    background-color: #000000 !important;
+}
+
+
+
+.nav-link{
+    color: #fda63b;
+
+}
+.dropdown-item{
+ 
+    color: #fda63b;
+
+}
+
+.dropdown-menu{
+    background-color: #000000;
+}
+.active{
+    color: #fda63b !important;
+
+}
+
+
+.header{
+    text-align: center;
+    font-size: 30px;
+    margin: 50px 0 50px 0;
+    background-color: rgba(248, 166, 34, 0.613);
+    color: #fff;
+    text-shadow: 0 0 5px #999;
+    
+}
+
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://i.ibb.co/0ZNh3Gv/Cookr-logo.png);
+    background-position: center;
+    background-size: cover;
+
+
+} 
+
+
+.card{
+    width: 250px;
+    height:250px;
+    display: inline-block;
+    border-radius: 10px;
+    padding:15px 25px;
+    box-sizing: border-box;
+    cursor:pointer;
+    margin:20px 20px;
+    background-position: center;
+    background-size:cover;
+    transition: transform 0.5s;
+    
+}
+
+
+.card1{
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.1)), url(https://i.ibb.co/Pjvxkfx/Sprouts-Peas-scaled.jpg);
+}
+
+.card2{
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.1)), url(https://i.ibb.co/PGQY88L/Peanut-Tofu-Buddha-Bowl-4.jpg);
+}
+
+.card3{
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.1)), url(https://i.ibb.co/Ch1bmgF/easy-chicken-fajitas-1.jpg);
+}
+
+
+
+
+h5{
+    color: #fff;
+    text-shadow: 0 0 5px #999;
+    font-size: 25px;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+}
+
+.btn{
+   
+    
+    color: #fda63b;
+    background: #0000006f;
+    border: 0;
+    border-radius: 20px;
+    transition: ease-out 0.3s;
+    
+}
