@@ -41,37 +41,42 @@
   <div class="container">
     <div class="container ">
       <h2 class="mb-4 text-center">Create you Cookr account!</h2>
-      <form class="regform mb-5 text-center">
+      <form class="regform mb-5 text-center" action="dbregister.php" method="POST">
         <div class="mb-4 ">
          
-          <input type="text" class="form-control data-in text-center" id="firstName" aria-describedby="firstNameHelp" placeholder="First Name">
+          <input type="text" class="form-control data-in text-center" id="firstName" aria-describedby="firstNameHelp" name="fname" placeholder="First Name">
         </div>
         <div class="mb-4">
           
-          <input type="text" class="form-control data-in text-center" id="lastName" aria-describedby="lastNameHelp" placeholder="Last Name">
+          <input type="text" class="form-control data-in text-center" id="lastName" aria-describedby="lastNameHelp" name="lname" placeholder="Last Name">
         </div>
         <div class="mb-4">
           
-          <input type="number" class="form-control data-in text-center" id="salary" aria-describedby="salaryHelp" placeholder="Salary">
+          <input type="number" class="form-control data-in text-center" id="salary" aria-describedby="salaryHelp" name="salary" placeholder="Salary">
+        </div>
+
+        <div class="mb-4">
+        <input type="email" class="form-control data-in text-center" id="email" name="email" placeholder="Email address" required>
+        </div>
+
+        <div class="mb-4">
+          
+          <input type="tel" class="form-control data-in text-center" id="mobileNumber" aria-describedby="mobileNumberHelp" name="phone" placeholder="Mobile Number">
         </div>
         <div class="mb-4">
           
-          <input type="tel" class="form-control data-in text-center" id="mobileNumber" aria-describedby="mobileNumberHelp" placeholder="Mobile Number">
-        </div>
-        <div class="mb-4">
-          
-          <input type="date" class="form-control data-in text-center" id="date" placeholder="Date of Birth">
+          <input type="date" name="dob" class="form-control data-in text-center" id="date" placeholder="Date of Birth">
         </div>
         <div class="mb-4">
           <div><label for="gender" class="form-label">Gender</label></div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+            <input class="form-check-input" type="radio" name="gender" id="male" value="m" checked>
             <label class="form-check-label" for="male">
               Male
             </label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input " type="radio" name="gender" id="female" value="female">
+            <input class="form-check-input " type="radio" name="gender" id="female" value="f">
             <label class="form-check-label" for="female">
               Female
             </label>
