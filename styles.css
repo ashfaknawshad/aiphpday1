@@ -1,0 +1,32 @@
+.jumbotron{
+    background-image: url("https://i.ibb.co/wM4Pwyk/tw-hero.png");
+    background-size: cover;
+}
+
+nav li :not(.active):hover{
+    transform: scale(1.2);
+}
+
+.card-body{
+    background-color: #D3F9FF;
+}
+
+.regform{
+    background-image: url("https://i.ibb.co/wM4Pwyk/tw-hero.png");
+    background-position-y: 30px;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: black 0px 0px 20px;
+    width: 500px;
+    text-align: center;
+    margin: 0 auto;
+    
+}
+
+
+
+.data-in{
+    border-bottom: 1px solid black !important;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0.222);
+}
