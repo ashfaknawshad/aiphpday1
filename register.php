@@ -100,18 +100,18 @@
                   Returning user? <a href="login.php">Sign in!</a>
                 </div>
               </div>
-             
-        </form>
-        <?php
+              <?php
 
-        if(isset($_GET['error'])) {
-          echo('
-           <div id="alertbox" class="alert alert-danger mt-3" role="alert">
-              User with this email already exists
-          </div>');
-        }
+                if(isset($_GET['error'])) {
+                  echo('
+                  <div id="alertbox" class="alert alert-danger mt-3" role="alert">
+                      User with this email already exists
+                  </div>');
+                }
+
+              ?>
+        </form>
         
-        ?>
         
     </div>
           

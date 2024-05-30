@@ -44,22 +44,15 @@ $password = generatePassword();
 // Prepare and execute the SQL query to insert the data into the Employee table
 $sql = "INSERT INTO employee (email, fname, lname, gender, phone, salary, dob, password) VALUES ('$email', '$fname', '$lname', '$gender', '$phone', '$salary', '$dob', '$password')";
 
-try {
+
     if ($conn->query($sql) === TRUE) {
         header('Location:login.php');
         exit();
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-} catch (mysqli_sql_exception $e) {
-    if (strpos($e->getMessage(), 'Duplicate entry') !== false) {
         header('Location:register.php?error');
         exit();
-
-    } else {
-        echo "Error: " . $e->getMessage();
     }
-}
+
 
 // Close the database connection
 $conn->close();
