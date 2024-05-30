@@ -17,7 +17,19 @@
     <link href="https://i.ibb.co/x74SzZ2/techwave-favicon.png" rel="icon">
     <link href="https://i.ibb.co/fQppK8D/techwave-apple-touch-icon.png" rel="apple-touch-icon">
     <!-- My CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+          background-color: #333;
+          color: #fff;
+      }
+      .hero-text {
+            text-align: center;
+            color: #333;
+            font-size: 5rem;
+            margin-top: 10vh;
+            font-weight: 100;
+        }
+    </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -37,7 +49,7 @@
                 <a class="nav-link" href="register.php">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="login.php">Login</a>
+                <a class="nav-link" href="login.php">Login</a>
               </li>
               
               
@@ -56,6 +68,42 @@
         <h3 class="display-4 text-center mt-5 mb-4">TechWave Dashboard</h3>
         <hr class="my-4">
     </div>
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://i.ibb.co/VCxgsrr/1.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Custom Software Development</h5>
+                        <p class="card-text">Tailored solutions designed to meet your  needs. Our expert developers will work with you to create software that enhances your operations and drives success.</p>
+                        <a href="#" class="btn btn-dark">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://i.ibb.co/Gc71Bt8/2.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Cloud Solutions</h5>
+                        <p class="card-text">Scalable, secure, and efficient cloud services that grow with your business. Transition to the cloud with ease and enjoy increased flexibility and collaboration.</p>
+                        <a href="#" class="btn btn-dark">Explore Cloud Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://i.ibb.co/mc6cPBS/3.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">AI Integration</h5>
+                        <p class="card-text">Harness the power of artificial intelligence to optimize your processes and gain insights. Our AI solutions help you stay ahead in a competitive market.</p>
+                        <a href="#" class="btn btn-dark">Discover AI Solutions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
    
           
 
