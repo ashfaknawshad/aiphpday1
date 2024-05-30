@@ -26,7 +26,7 @@
                 <a class="nav-link " aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="register.html">Register</a>
+                <a class="nav-link" href="register.php">Register</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="#">Login</a>
@@ -71,7 +71,7 @@
                 </div>
               </div>
             <button type="submit" class="btn submit-btn btn-dark mt-4 mb-3">Login</button>
-            <div><p class="text-center mt-2">Don't have an account? <a href="register.html">Register</a></p></div>
+            <div><p class="text-center mt-2">Don't have an account? <a href="register.php">Register</a></p></div>
           </form>
     </div>
           

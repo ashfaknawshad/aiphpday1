@@ -63,8 +63,9 @@ $sql = "INSERT INTO employee (email, fname, lname, phone, salary, dob, gender, p
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "User already exists";
 }
 
+// Close the database connection
 $conn->close();
 ?>

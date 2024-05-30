@@ -29,7 +29,7 @@
                 <a class="nav-link active" href="#">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" href="login.php">Login</a>
               </li>
              
               
@@ -45,37 +45,37 @@
 
 
     <div class="container mb-5">
-        <h3 class="display-4 text-center mt-5 mb-5">Techwave Employee Registration</h3>
+        <h3 class="display-4 text-center mt-5 mb-4">Techwave Employee Registration</h3>
      
         <hr class="my-4">
     </div>
     <div class="container d-flex justify-content-center">
-        <form class="regform mb-5 text-center ">
+        <form action="dbregister.php" method="POST" class="regform mb-5 text-center ">
           <div class="form-group mb-2">
             
-            <input type="email" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" class="form-control text-center" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
 
             <div class="mb-4 ">
              
-              <input type="text" class="form-control data-in text-center" id="firstName" aria-describedby="firstNameHelp" placeholder="First Name">
+              <input type="text" class="form-control data-in text-center" id="firstName" name="fname" aria-describedby="firstNameHelp" placeholder="First Name">
             </div>
             <div class="mb-4">
               
-              <input type="text" class="form-control data-in text-center" id="lastName" aria-describedby="lastNameHelp" placeholder="Last Name">
+              <input type="text" class="form-control data-in text-center" id="lastName" name="lname" aria-describedby="lastNameHelp" placeholder="Last Name">
             </div>
             <div class="mb-4">
               
-              <input type="number" class="form-control data-in text-center" id="salary" aria-describedby="salaryHelp" placeholder="Salary">
+              <input type="number" class="form-control data-in text-center" id="salary" name="salary" aria-describedby="salaryHelp" placeholder="Salary">
             </div>
             <div class="mb-4">
               
-              <input type="tel" class="form-control data-in text-center" id="mobileNumber" aria-describedby="mobileNumberHelp" placeholder="Mobile Number">
+              <input type="tel" class="form-control data-in text-center" id="mobileNumber" name="phone" aria-describedby="mobileNumberHelp" placeholder="Mobile Number">
             </div>
             <div class="mb-4">
               
-              <input type="date" class="form-control data-in text-center" id="date" placeholder="Date of Birth">
+              <input type="date" class="form-control data-in text-center" id="date" name="dob" placeholder="Date of Birth">
             </div>
             <div class="mb-4">
               <div><label for="gender" class="form-label">Gender</label></div>
@@ -97,7 +97,7 @@
                     <button type="submit" class="btn submit-btn btn-dark">Create Account</button>
                 </div>
                 <div class="col-md-6 text-md-right">
-                  Returning user? <a href="login.html">Sign in!</a>
+                  Returning user? <a href="login.php">Sign in!</a>
                 </div>
               </div>
             
