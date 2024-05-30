@@ -53,7 +53,7 @@
         <form action="dbregister.php" method="POST" class="regform mb-5 text-center ">
           <div class="form-group mb-2">
             
-            <input type="email" class="form-control text-center" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" onkeyup="hideAlertBox()" class="form-control text-center" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
 
@@ -115,6 +115,15 @@
         
     </div>
           
+
+    <!-- Hide alertbox JS -->
+    <script>
+      function hideAlertBox() {
+        const alertBox = document.getElementById("alertbox");
+        alertBox.style.display = "none";
+      }
+    </script>
+    
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

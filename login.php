@@ -52,7 +52,7 @@
         <form action="dblogin.php" method="POST" class="loginform mb-5 text-center">
             <div class="mb-4 ">
              
-              <input type="text" class="form-control data-in text-center" id="username" name="email" aria-describedby="userNameHelp" placeholder="Username">
+              <input type="text" class="form-control data-in text-center" onkeyup="hideAlertBox()" id="username" name="email" aria-describedby="userNameHelp" placeholder="Username">
             </div>
             <div class="mb-4">
               <input type="password" class="form-control data-in text-center" id="password" name="pass" placeholder="Password">
@@ -85,6 +85,14 @@
           </form>
     </div>
           
+    <!-- Hide alertbox JS -->
+    <script>
+      function hideAlertBox() {
+        const alertBox = document.getElementById("alertbox");
+        alertBox.style.display = "none";
+      }
+    </script>
 
+    
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
