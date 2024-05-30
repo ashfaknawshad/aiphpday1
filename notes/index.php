@@ -21,17 +21,10 @@
     <link rel="stylesheet" href="../styles.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-    .hero-text {
-        text-align: center;
-        color: #333;
-        font-size: 5rem;
-        font-weight: 100;
-    }
-    </style>
+
 </head>
 
-<body>
+<body style="background-color: #D3F9FF;">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -114,7 +107,7 @@
                         echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
                         echo "<td class='p-3'>" . $row["title"] . "</td>";
                         echo "<td class='p-3'>" . $row["description"] . "</td>";
-                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbnotes.php?delid=" . $row["id"] . ">X</a> </td>";
+                        echo "<td class='p-3 delbtn'> <a class='btn btn-outline-danger' href=" . "dbnotes.php?delid=" . $row["id"] . ">Delete</a> </td>";
                         echo "</tr>";
                     }
                 } else {
