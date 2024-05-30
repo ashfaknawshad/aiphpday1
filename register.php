@@ -49,7 +49,7 @@
      
         <hr class="my-4">
     </div>
-    <div class="container d-flex justify-content-center">
+    <div class="container">
         <form action="dbregister.php" method="POST" class="regform mb-5 text-center ">
           <div class="form-group mb-2">
             
@@ -92,7 +92,7 @@
                 </label>
               </div>
             </div>
-            <div class=" row">
+            <div class=" row mb-4">
                 <div class="col-md-6">
                     <button type="submit" class="btn submit-btn btn-dark">Create Account</button>
                 </div>
@@ -100,8 +100,19 @@
                   Returning user? <a href="login.php">Sign in!</a>
                 </div>
               </div>
-            
+             
         </form>
+        <?php
+
+        if(isset($_GET['error'])) {
+          echo('
+           <div id="alertbox" class="alert alert-danger mt-3" role="alert">
+              User with this email already exists
+          </div>');
+        }
+        
+        ?>
+        
     </div>
           
 
