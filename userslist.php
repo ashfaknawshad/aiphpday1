@@ -1,9 +1,15 @@
-
+<?php
+    session_start();
+    if(!isset($_SESSION['adminloggedin'])) {
+        header('Location: login.php');
+        exit();
+    }
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Employee Table</title>
+    <title>Admin Panel - Techwave</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
       .hero-text {
