@@ -61,11 +61,12 @@
        
     </div>
     <div class="container mb-5">
-        <div class="row justify-content-center">
+    <div class="row justify-content-center ">
+        
         
           
           
-          <a class="col-4 dash-card card p-3 rounded-5"  href="notes/index.php">
+          <a class="col-4 dash-card card p-3 rounded-5 mr-5"  href="notes/index.php">
           <img src="https://i.ibb.co/Zc8LV1L/notes-app.png" class="card-img-top" alt="..."/>
           <h3 class="dash-card-text">Notes App</h3>
           </a>
@@ -73,7 +74,18 @@
         
    
             
-        </div>
+        
+          
+          <a class="col-4 dash-card card p-3 rounded-5"  href="tasklist/index.php">
+          <img src="https://i.ibb.co/Zc8LV1L/notes-app.png" class="card-img-top" alt="..."/>
+          <h3 class="dash-card-text">Task List</h3>
+          </a>
+          
+        
+   
+            
+        
+    </div>
         
     </div>
 
