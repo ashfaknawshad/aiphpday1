@@ -4,6 +4,13 @@
         header('Location: ../login.php');
         exit();
     }
+    if(isset($_GET['taskname']) && isset($_GET['cdate'])){
+        $tname=$_GET['taskname'];
+        $cdate=$_GET['cdate'];
+    }else{
+        header('Location: ../tasklist/index.php');
+        exit;
+    }
 ?>
 
 <!doctype html>
@@ -28,14 +35,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="../index.html"><img src="https://i.ibb.co/x74SzZ2/techwave-favicon.png"> TechWave</a>
+          <a class="navbar-brand" href="../index.php"><img src="https://i.ibb.co/x74SzZ2/techwave-favicon.png"> TechWave</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 mr-auto">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                <a class="nav-link" aria-current="page" href="../index.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../register.php">Register</a>
@@ -55,14 +62,13 @@
     </nav>
 
     <div class="container-md text-center " style="max-width: 850px;">
-        <div class="mb-5 hero-text">Tasklist</div>
-        <form action="dbtask.php" method="POST" class="row g-3">
-        <div class="col-4">
-                <input type="text" class="form-control" id="taskName" name="taskName" placeholder="Task Name" required/>
+        <div class="mb-3 hero-text"><?php echo ($tname); ?><br/></div>
+        <span class="text-secondary fs-3 mt-0 pt-0"> <?php echo ($cdate); ?></span>
+        <form action="dbitems.php?taskname=<?php echo ($tname); ?>&cdate=<?php echo ($cdate); ?>" method="POST" class="row g-3 mt-1">
+        <div class="col-10">
+                <input type="text" class="form-control" id="title" name="description" placeholder="Description" required/>
             </div>
-            <div class="col-6">
-                <input type="text" class="form-control" id="caption" name="caption" placeholder="Caption" required></input>
-            </div>
+            
             <div class="col-1">
             <button type="submit" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
@@ -100,16 +106,9 @@
   </div>
 
 <!-- Modal Ends -->
+<div style="text-align: left">
+        <ul class="list-group">
 
-        <table class="table mt-5">
-            <thead>
-                <tr>
-                    <th>Date Created</th>
-                    <th>Task Name</th>
-                    <th>Caption</th>
-                </tr>
-            </thead>
-            <tbody>
                 <?php
                 // Connect to the MySQL database
                 $servername = "localhost";
@@ -130,15 +129,15 @@
                     $search=$_GET['search'];
                     if($search==''){
                         //All the records
-                        $sql = "SELECT id,createdDate,taskName,caption FROM tasklist WHERE email = '$email' ORDER BY createdDate DESC";
+                        $sql = "SELECT itemId,description,status FROM item WHERE taskName = '$tname';";
                     }
-                    $sql = "SELECT id,createdDate,taskName,caption FROM tasklist WHERE email = '$email' AND taskName LIKE '%$search%' ORDER BY createdDate DESC";
+                    $sql = "SELECT itemId,description,status FROM item WHERE email = '$email' AND description LIKE '%$search%'";
                 }else{
                     // SQL query to select the desired columns from the "Employee" table
-                    $sql = "SELECT id,createdDate,taskName,caption FROM tasklist WHERE email = '$email' ORDER BY createdDate DESC";
+                    $sql = "SELECT itemId,description,status FROM item WHERE taskName = '$tname'";
                 }
 
-                
+
                 // Execute the query
                 $result = $conn->query($sql);
 
@@ -146,16 +145,16 @@
                 if ($result) {
                     // Fetch the rows
                     while ($row = $result->fetch_assoc()) {
-                        $tname=$row["taskName"];
-                        $cdate=$row["createdDate"];
                         // Display the data in table rows
-                        echo "<tr>";
-                        echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
-                        echo "<td class='p-3'><a href='../items/index.php?taskname=" . $tname . "&cdate=" . $cdate . "'>" . $tname . "</a></td>";
-                        echo "<td class='p-3'>" . $row["caption"] . "</td>";
-                        echo "<td class='p-3 delbtn'> <a class='btn btn-outline-danger' href=" . "dbtask.php?delid=" . $row["id"] . "> Delete
-                        </a> </td>";
-                        echo "</tr>";
+
+                       echo('<li class="list-group-item fs-5 fw-light">
+                            <input class="form-check-input me-1 ml-1" type="checkbox" value="" id="'.$row['itemId'].'">
+                            <label class="form-check-label stretched-link ml-5" for="'.$row['itemId'].'">'.$row["description"].'</label>
+                        ');
+                        
+                        
+                        echo " <a class='btn btn-outline-danger' href=" . "dbitems.php?delid=" . $row["itemId"] . ">X</a> </li> ";
+                        
                     }
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -164,8 +163,8 @@
                 // Close the connection
                 $conn->close();
                 ?>
-            </tbody>
-        </table>
+            </ul>
+        </div>
 
     </div>
    
