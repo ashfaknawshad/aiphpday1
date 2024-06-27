@@ -58,7 +58,7 @@
         <div class="mb-5 hero-text">Tasklist</div>
         <form action="dbtask.php" method="POST" class="row g-3">
         <div class="col-4">
-                <input type="text" class="form-control" id="taskName" name="taskName" placeholder="Task Name" required/>
+                <input type="text" class="form-control" id="taskName" name="taskName" placeholder="Task Name" required/></input>
             </div>
             <div class="col-6">
                 <input type="text" class="form-control" id="caption" name="caption" placeholder="Caption" required></input>
@@ -146,12 +146,12 @@
                 if ($result) {
                     // Fetch the rows
                     while ($row = $result->fetch_assoc()) {
-                        $tname=$row["taskName"];
+                        $taskName=$row["taskName"];
                         $cdate=$row["createdDate"];
                         // Display the data in table rows
                         echo "<tr>";
                         echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
-                        echo "<td class='p-3'><a href='../items/index.php?taskname=" . $tname . "&cdate=" . $cdate . "'>" . $tname . "</a></td>";
+                        echo "<td class='p-3'><a href='../items/index.php?taskName=" . $taskName . "&cdate=" . $cdate . "'>" . $taskName . "</a></td>";
                         echo "<td class='p-3'>" . $row["caption"] . "</td>";
                         echo "<td class='p-3 delbtn'> <a class='btn btn-outline-danger' href=" . "dbtask.php?delid=" . $row["id"] . "> Delete
                         </a> </td>";

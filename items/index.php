@@ -4,8 +4,8 @@
         header('Location: ../login.php');
         exit();
     }
-    if(isset($_GET['taskname']) && isset($_GET['cdate'])){
-        $tname=$_GET['taskname'];
+    if(isset($_GET['taskName']) && isset($_GET['cdate'])){
+        $taskName=$_GET['taskName'];
         $cdate=$_GET['cdate'];
     }else{
         header('Location: ../tasklist/index.php');
@@ -62,9 +62,9 @@
     </nav>
 
     <div class="container-md text-center " style="max-width: 850px;">
-        <div class="mb-3 hero-text"><?php echo ($tname); ?><br/></div>
+        <div class="mb-3 hero-text"><?php echo ($taskName); ?><br/></div>
         <span class="text-secondary fs-3 mt-0 pt-0"> <?php echo ($cdate); ?></span>
-        <form action="dbitems.php?taskname=<?php echo ($tname); ?>&cdate=<?php echo ($cdate); ?>" method="POST" class="row g-3 mt-1">
+        <form action="dbitems.php?taskName=<?php echo ($taskName); ?>&cdate=<?php echo ($cdate); ?>" method="POST" class="row g-3 mt-1">
         <div class="col-10">
                 <input type="text" class="form-control" id="title" name="description" placeholder="Description" required/>
             </div>
@@ -129,12 +129,12 @@
                     $search=$_GET['search'];
                     if($search==''){
                         //All the records
-                        $sql = "SELECT itemId,description,status FROM item WHERE taskName = '$tname';";
+                        $sql = "SELECT itemId,description,status FROM item WHERE taskName = '$taskName';";
                     }
                     $sql = "SELECT itemId,description,status FROM item WHERE email = '$email' AND description LIKE '%$search%'";
                 }else{
                     // SQL query to select the desired columns from the "Employee" table
-                    $sql = "SELECT itemId,description,status FROM item WHERE taskName = '$tname'";
+                    $sql = "SELECT itemId,description,status FROM item WHERE taskName = '$taskName'";
                 }
 
 
@@ -149,11 +149,11 @@
 
                        echo('<li class="list-group-item fs-5 fw-light">
                             <input class="form-check-input me-1 ml-1" type="checkbox" value="" id="'.$row['itemId'].'">
-                            <label class="form-check-label stretched-link ml-5" for="'.$row['itemId'].'">'.$row["description"].'</label>
+                            <label class="form-check-label  ml-5" for="'.$row['itemId'].'">'.$row["description"].'</label>
                         ');
                         
                         
-                        echo " <a class='btn btn-outline-danger' href=" . "dbitems.php?delid=" . $row["itemId"] . ">X</a> </li> ";
+                        echo " <a class='btn btn-outline-danger' href=" . "dbitems.php?delid=" . $row["itemId"] . "&taskName=" . $taskName . "&cdate=" . $cdate .">X</a> </li> ";
                         
                     }
                 } else {

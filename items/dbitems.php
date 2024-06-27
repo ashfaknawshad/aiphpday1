@@ -25,7 +25,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Get the form data
         $description = $_POST['description'];
-        $taskname = $_GET['taskname'];
+        $taskName = $_GET['taskName'];
         $cdate=$_GET['cdate'];
         
 
@@ -39,10 +39,10 @@
 
         // Prepare and execute the SQL statement
         $stmt = $conn->prepare("INSERT INTO item (description,taskName) VALUES (?, ?)");
-        $stmt->bind_param("ss", $description, $taskname,);
+        $stmt->bind_param("ss", $description, $taskName,);
 
         if ($stmt->execute()) {
-            header("Location:index.php?taskname=" . $taskname . "&cdate=" . $cdate . "");
+            header("Location:index.php?taskName=".$taskName."&cdate=".$cdate."");
             exit();
         } else {
             echo "Error: " . $stmt->error;
@@ -56,11 +56,13 @@
 
     //Check if a delete request is made
     if(isset($_GET['delid'])){
+        $taskName = $_GET['taskName'];
+        $cdate=$_GET['cdate'];
         $delid = $_GET['delid'];
         $conn = new mysqli($servername, $username, $password, $dbname);
         $sql = "DELETE FROM item WHERE itemId = '".$delid."'";
-        if($conn->query($sql) === TRUE){
-            header('Location:index.php?deleted');
+        if($conn->query($sql) == TRUE){
+            header("Location:index.php?taskName=".$taskName."&cdate=".$cdate."");
             exit();
         };
         $conn->close();
