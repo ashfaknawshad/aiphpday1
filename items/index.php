@@ -127,7 +127,7 @@
                 while ($row = $result->fetch_assoc()) {
                     // Display the data in table rows
                     echo('<li class="list-group-item fs-5 fw-light">
-                        <input class="form-check-input me-1 ml-1" type="checkbox" value="" id="' . $row['itemId'] . '">
+                        <input class="form-check-input me-1" type="checkbox" value="" id="' . $row['itemId'] . '" onchange="updateStatus(' . $row['itemId'] . ')"' . ($row['status'] == '1' ? ' checked' : '') . '/>
                         <label class="form-check-label ml-5" for="' . $row['itemId'] . '">' . htmlspecialchars($row["description"]) . '</label>');
                     
                     echo " <a class='btn btn-outline-danger' href='dbitems.php?delid=" . urlencode($row["itemId"]) . "&taskName=" . urlencode($taskName) . "&cdate=" . urlencode($cdate) . "'>X</a> </li> ";
@@ -143,7 +143,38 @@
     </div>
 </div>
 
+ <!-- Item Status Update Function -->
+ <script>
+        function updateStatus(itemId) {
 
+            // Get the checkbox element
+    var checkbox = document.getElementById(itemId);
+
+// Get the label element
+var label = document.querySelector(`label[for="${itemId}"]`);
+
+// Check if the checkbox is checked
+if (checkbox.checked) {
+    // Add the strike-through class to the label
+    label.classList.add('text-decoration-line-through');
+} else {
+    // Remove the strike-through class from the label
+    label.classList.remove('text-decoration-line-through');
+}
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'dbupdatestatus.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Handle the response from the server
+                    var response = xhr.responseText;
+                    console.log(response);
+                }
+            };
+            xhr.send('itemId=' + itemId);
+        }
+    </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzEyQG6pvvE1S4e5REl4OgICmOIT5FOz2hvZBfQhZu5i" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-cha2+dowTONL5tzPp9K1MSkEh1q3qFA0OzPZCxWrLtEvIPu4ArCZJLIT3Gnsq1kB" crossorigin="anonymous"></script>
