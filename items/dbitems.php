@@ -1,15 +1,12 @@
-
 <?php
     session_start();
     if(!isset($_SESSION['userloggedin'])) {
         header('Location: ../login.php');
         exit();
     }
-    
 ?>
 
 <?php
-
     // Enable error reporting
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -26,9 +23,11 @@
         // Get the form data
         $description = $_POST['description'];
         $taskName = $_GET['taskName'];
-        $cdate=$_GET['cdate'];
-        
+        $cdate = $_GET['cdate'];
 
+        // Debugging statements
+        echo "Received taskName: $taskName<br>";
+        echo "Received cdate: $cdate<br>";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -38,11 +37,13 @@
         }
 
         // Prepare and execute the SQL statement
-        $stmt = $conn->prepare("INSERT INTO item (description,taskName) VALUES (?, ?)");
-        $stmt->bind_param("ss", $description, $taskName,);
+        $stmt = $conn->prepare("INSERT INTO item (description, taskName) VALUES (?, ?)");
+        $stmt->bind_param("ss", $description, $taskName);
 
         if ($stmt->execute()) {
-            header("Location:index.php?taskName=".$taskName."&cdate=".$cdate."");
+            $location = "Location: index.php?taskName=" . urlencode($taskName) . "&cdate=" . urlencode($cdate);
+            echo "Redirecting to: $location<br>";
+            header($location);
             exit();
         } else {
             echo "Error: " . $stmt->error;
@@ -53,21 +54,25 @@
         $conn->close();
     }
 
-
-    //Check if a delete request is made
-    if(isset($_GET['delid'])){
+    // Check if a delete request is made
+    if (isset($_GET['delid'])) {
         $taskName = $_GET['taskName'];
-        $cdate=$_GET['cdate'];
+        $cdate = $_GET['cdate'];
         $delid = $_GET['delid'];
+
+        // Debugging statements
+        echo "Deleting item with ID: $delid<br>";
+        echo "For taskName: $taskName<br>";
+        echo "For cdate: $cdate<br>";
+
         $conn = new mysqli($servername, $username, $password, $dbname);
         $sql = "DELETE FROM item WHERE itemId = '".$delid."'";
-        if($conn->query($sql) == TRUE){
-            header("Location:index.php?taskName=".$taskName."&cdate=".$cdate."");
+        if ($conn->query($sql) === TRUE) {
+            $location = "Location: index.php?taskName=" . urlencode($taskName) . "&cdate=" . urlencode($cdate);
+            echo "Redirecting to: $location<br>";
+            header($location);
             exit();
-        };
+        }
         $conn->close();
     }
-
-    
-    
 ?>
