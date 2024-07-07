@@ -27,31 +27,42 @@
 </head>
 
 <body style="background-color: #D3F9FF;">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="../index.php"><img src="https://i.ibb.co/x74SzZ2/techwave-favicon.png"> TechWave</a>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.php"><img src="https://i.ibb.co/x74SzZ2/techwave-favicon.png" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mr-auto">
-                <li class="nav-item"><a class="nav-link" aria-current="page" href="../index.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="../register.php">Register</a></li>
-                <li class="nav-item"><a class="nav-link" href="../logout.php">Logout</a></li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-secondary" type="submit">Search</button>
-            </form>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+         <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.php">TechWave</a>
+        </li>
+                
+        
+         
+        </ul>
+        <form class="d-flex" role="search">
+       
+          
+            
+            
+        <a class="btn btn-outline-success me-2" href="../tasklist/index.php">Back to Tasklist</a>
+                
+        <a href="logout.php" class="btn btn-outline-danger" >Logout</a>
+            
+            
+          </form>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
 <div class="container-md text-center" style="max-width: 850px;">
     <div class="mb-3 hero-text"><?php echo htmlspecialchars($taskName); ?><br/></div>
     <span class="text-secondary fs-3 mt-0 pt-0"><?php echo htmlspecialchars($cdate); ?></span>
     <form action="dbitems.php?taskName=<?php echo urlencode($taskName); ?>&cdate=<?php echo urlencode($cdate); ?>" method="POST" class="row g-3 mt-1">
-        <div class="col-10">
+        <div class="col-10 mb-5">
             <input type="text" class="form-control" id="title" name="description" placeholder="Description" required/>
         </div>
         <div class="col-1">
@@ -127,7 +138,7 @@
                 while ($row = $result->fetch_assoc()) {
                     // Display the data in table rows
                     echo('<li class="list-group-item fs-5 fw-light">
-                        <input class="form-check-input me-1" type="checkbox" value="" id="' . $row['itemId'] . '" onchange="updateStatus(' . $row['itemId'] . ')"' . ($row['status'] == '1' ? ' checked' : '') . '/>
+                        <input class="form-check-input ml-1" type="checkbox" value="" id="' . $row['itemId'] . '" onchange="updateStatus(' . $row['itemId'] . ')"' . ($row['status'] == '1' ? ' checked' : '') . '/>
                         <label class="form-check-label ml-5" for="' . $row['itemId'] . '">' . htmlspecialchars($row["description"]) . '</label>');
                     
                     echo " <a class='btn btn-outline-danger' href='dbitems.php?delid=" . urlencode($row["itemId"]) . "&taskName=" . urlencode($taskName) . "&cdate=" . urlencode($cdate) . "'>X</a> </li> ";

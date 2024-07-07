@@ -26,7 +26,7 @@
 
 <body style="background-color: #D3F9FF;">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="../index.html"><img src="https://i.ibb.co/x74SzZ2/techwave-favicon.png"> TechWave</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,11 @@
             </form>
           </div>
         </div>
-    </nav>
+    </nav> -->
+
+    <?php
+      include_once('../nav-logged.php');
+    ?>
 
     <div class="container-md text-center " style="max-width: 850px;">
         <div class="mb-5 hero-text">Tasklist</div>
